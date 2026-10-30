@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import { connectDB } from "./src/config/database.js";
 import authRoutes from "./src/routes/auth.routes.js";
 import userRoutes from "./src/routes/user.routes.js";
+import categoryRoutes from "./src/routes/category.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/categories", categoryRoutes);
 
 await connectDB();
 
